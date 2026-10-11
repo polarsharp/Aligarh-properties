@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polarsharp - Aligarh Rental & Property Marketplace</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        polar: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-polar-500 selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-polar-600 to-emerald-400 flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                    P
+                </div>
+                <div>
+                    <span class="text-2xl font-bold tracking-tight text-slate-900">polar<span class="text-polar-600">sharp</span></span>
+                    <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold">Aligarh Properties</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
+                <a href="#properties" class="hover:text-polar-600 transition-colors">Properties</a>
+                <a href="#how-it-works" class="hover:text-polar-600 transition-colors">How It Works</a>
+                <a href="#list-property" class="hover:text-polar-600 transition-colors">List Your Property</a>
+                <a href="#about" class="hover:text-polar-600 transition-colors">About Aligarh Hub</a>
+            </nav>
+
+            <!-- CTA / Contact -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="mailto:contact@polarsharp.com?subject=Inquiry%20regarding%20Polarsharp%20Aligarh" class="px-5 py-2.5 rounded-xl bg-polar-600 text-white font-medium hover:bg-polar-700 transition-all shadow-sm hover:shadow flex items-center gap-2">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Email Us</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="md:hidden text-slate-700 focus:outline-none p-2 rounded-lg hover:bg-slate-100">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 shadow-lg">
+            <a href="#properties" class="block text-slate-600 font-medium py-1 hover:text-polar-600">Properties</a>
+            <a href="#how-it-works" class="block text-slate-600 font-medium py-1 hover:text-polar-600">How It Works</a>
+            <a href="#list-property" class="block text-slate-600 font-medium py-1 hover:text-polar-600">List Your Property</a>
+            <a href="#about" class="block text-slate-600 font-medium py-1 hover:text-polar-600">About Aligarh Hub</a>
+            <div class="pt-2">
+                <a href="mailto:contact@polarsharp.com" class="block text-center w-full py-2.5 rounded-xl bg-polar-600 text-white font-medium">Email Us Now</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <!-- Background decorative blur elements -->
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-polar-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10 space-y-6">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-polar-500/10 text-polar-400 border border-polar-500/30">
+                <i class="fa-solid fa-location-dot"></i> Aligarh, Uttar Pradesh
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                Find Your Perfect Rental or Home in <span class="text-transparent bg-clip-text bg-gradient-to-r from-polar-400 to-emerald-300">Aligarh</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-light">
+                Trusted verified properties for rent & sale across Civil Lines, Marris Road, Ramghat Road, and more. 100% managed securely via email.
+            </p>
+
+            <!-- Search & Filter Bar -->
+            <div class="mt-10 bg-white p-3 sm:p-4 rounded-2xl shadow-2xl text-slate-800 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-4 gap-3 items-center">
+                <!-- Location Filter -->
+                <div class="flex items-center gap-3 px-3 py-2 bg-slate-50 rounded-xl border border-slate-200">
+                    <i class="fa-solid fa-map-pin text-polar-600"></i>
+                    <div class="w-full text-left">
+                        <label class="block text-[10px] uppercase font-bold text-slate-400">Locality</label>
+                        <select id="filter-location" class="w-full bg-transparent text-sm font-semibold text-slate-700 focus:outline-none cursor-pointer">
+                            <option value="all">All Aligarh Areas</option>
+                            <option value="civil lines">Civil Lines</option>
+                            <option value="marris road">Marris Road</option>
+                            <option value="ramghat road">Ramghat Road</option>
+                            <option value="medical road">Medical Road</option>
+                            <option value="qila">Qila / Dodhpur</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Type Filter -->
+                <div class="flex items-center gap-3 px-3 py-2 bg-slate-50 rounded-xl border border-slate-200">
+                    <i class="fa-solid fa-house text-polar-600"></i>
+                    <div class="w-full text-left">
+                        <label class="block text-[10px] uppercase font-bold text-slate-400">Listing Type</label>
+                        <select id="filter-type" class="w-full bg-transparent text-sm font-semibold text-slate-700 focus:outline-none cursor-pointer">
+                            <option value="all">Rent & Sale</option>
+                            <option value="rent">For Rent</option>
+                            <option value="sale">For Sale</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Property Category -->
+                <div class="flex items-center gap-3 px-3 py-2 bg-slate-50 rounded-xl border border-slate-200">
+                    <i class="fa-solid fa-building text-polar-600"></i>
+                    <div class="w-full text-left">
+                        <label class="block text-[10px] uppercase font-bold text-slate-400">Category</label>
+                        <select id="filter-category" class="w-full bg-transparent text-sm font-semibold text-slate-700 focus:outline-none cursor-pointer">
+                            <option value="all">All Categories</option>
+                            <option value="apartment">Apartment / Flat</option>
+                            <option value="house">Independent House</option>
+                            <option value="villa">Luxury Villa / Plot</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Search Button -->
+                <button onclick="filterProperties()" class="w-full h-full bg-polar-600 hover:bg-polar-700 text-white font-medium py-3 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Search</span>
+                </button>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="pt-8 grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto border-t border-slate-800 mt-12 text-slate-400 text-sm">
+                <div><span class="block text-2xl font-bold text-white">100+</span> Verified Listings</div>
+                <div><span class="block text-2xl font-bold text-white">Transparent</span> Email-Based Deals</div>
+                <div class="col-span-2 md:col-span-1"><span class="block text-2xl font-bold text-white">Nominal</span> Owner Commission</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="properties" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+                <span class="text-polar-600 font-semibold text-sm uppercase tracking-wider">Explore Portfolio</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-1">Featured Properties in Aligarh</h2>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-500 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm">
+                <i class="fa-solid fa-envelope-circle-check text-polar-600"></i>
+                <span>All inquiries handled via <strong class="text-slate-700">polarsharp@gmail.com</strong></span>
+            </div>
+        </div>
+
+        <!-- Property Grid Container -->
+        <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Property cards will be injected dynamically via JavaScript for clean filtering -->
+        </div>
+
+        <!-- No Results State -->
+        <div id="no-results" class="hidden text-center py-16 bg-white rounded-2xl border border-slate-200 shadow-sm">
+            <i class="fa-regular fa-folder-open text-4xl text-slate-300 mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-700">No properties match your filter</h3>
+            <p class="text-sm text-slate-500 mt-1">Try changing your location or category filters.</p>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="bg-white py-20 px-4 sm:px-6 lg:px-8 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-polar-600 font-semibold text-sm uppercase tracking-wider">Simple & Transparent</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-1">How Polarsharp Business Works</h2>
+                <p class="text-slate-600 mt-3 font-light">We bridge property owners in Aligarh with reliable tenants and buyers entirely through verified email transactions, charging a modest commission upon successful closure.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200/80 relative hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-polar-600 text-white font-bold flex items-center justify-center text-lg mb-6 shadow-md">
+                        01
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Owners Email Details</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Property owners send photos, exact Aligarh address, rent/sale price, and specifications directly to <strong class="text-slate-800">polarsharp@gmail.com</strong>.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200/80 relative hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-polar-600 text-white font-bold flex items-center justify-center text-lg mb-6 shadow-md">
+                        02
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">We List & Market</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        We review the listing, verify details, and feature it on Polarsharp. Interested seekers contact us via email to schedule visits.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200/80 relative hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-polar-600 text-white font-bold flex items-center justify-center text-lg mb-6 shadow-md">
+                        03
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Deal & Commission</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Once the rental agreement or sale deed is finalized, the owner pays a nominal commission fee (<strong class="text-slate-800">5% of 1 month rent</strong> for rentals / <strong class="text-slate-800">1%</strong> for sales).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="list-property" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden">
+            <div class="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 w-96 h-96 bg-polar-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
+                <div class="space-y-6">
+                    <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-polar-500/20 text-polar-300 border border-polar-500/30">
+                        For Property Owners in Aligarh
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Have a House or Flat for Rent / Sale?</h2>
+                    <p class="text-slate-300 text-sm sm:text-base font-light leading-relaxed">
+                        List with Polarsharp today and reach verified tenants and buyers instantly. No complicated apps or registrations—just email your property details directly to our desk.
+                    </p>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-polar-400"></i>
+                            <span>Fast tenant matching across Aligarh</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-polar-400"></i>
+                            <span>Zero upfront listing fees</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-polar-400"></i>
+                            <span>Transparent commission terms agreed over email</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Email Generator Box -->
+                <div class="bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4">
+                    <h3 class="text-xl font-bold text-white">Draft Your Property Email</h3>
+                    <p class="text-xs text-slate-300">Fill in brief details and click below to open your email client instantly.</p>
+                    
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Your Name & Phone</label>
+                            <input type="text" id="owner-name" placeholder="e.g., Rajesh Sharma (+91 98765...)" class="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-polar-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Property Address in Aligarh</label>
+                            <input type="text" id="owner-address" placeholder="e.g., Marris Road, Near SBI Bank" class="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-polar-500">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-1">Listing For</label>
+                                <select id="owner-intent" class="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-polar-500">
+                                    <option value="Rent">Rent</option>
+                                    <option value="Sale">Sale</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-1">Expected Price / Rent</label>
+                                <input type="text" id="owner-price" placeholder="e.g., ?12,000 / mo" class="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-polar-500">
+                            </div>
+                        </div>
+                        <button onclick="sendOwnerEmail()" class="w-full mt-2 py-3 bg-polar-600 hover:bg-polar-700 text-white font-semibold rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Send Property Details via Email</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="property-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-700 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-slate-400 py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="space-y-4 md:col-span-1">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-polar-600 flex items-center justify-center text-white font-bold text-lg">
+                        P
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-white">polar<span class="text-polar-500">sharp</span></span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Aligarh's trusted digital rental and property marketplace. Connecting owners and seekers through email with complete transparency.
+                </p>
+                <div class="text-xs text-slate-300">
+                    <p><i class="fa-solid fa-envelope mr-2 text-polar-500"></i> polarsharp@gmail.com</p>
+                    <p class="mt-1"><i class="fa-solid fa-location-dot mr-2 text-polar-500"></i> Civil Lines, Aligarh, UP</p>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Popular Localities</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#properties" onclick="filterByLocality('civil lines')" class="hover:text-white transition-colors">Civil Lines Rentals</a></li>
+                    <li><a href="#properties" onclick="filterByLocality('marris road')" class="hover:text-white transition-colors">Marris Road Apartments</a></li>
+                    <li><a href="#properties" onclick="filterByLocality('ramghat road')" class="hover:text-white transition-colors">Ramghat Road Properties</a></li>
+                    <li><a href="#properties" onclick="filterByLocality('medical road')" class="hover:text-white transition-colors">Medical Road Houses</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#properties" class="hover:text-white transition-colors">Browse Listings</a></li>
+                    <li><a href="#how-it-works" class="hover:text-white transition-colors">Commission Structure</a></li>
+                    <li><a href="#list-property" class="hover:text-white transition-colors">Owner Submissions</a></li>
+                    <li><a href="mailto:polarsharp@gmail.com" class="hover:text-white transition-colors">Support Desk</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Business Notice</h4>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Polarsharp operates strictly as a liaison broker. All agreements are finalized directly between owner and client. Standard commission applies upon successful contract signing.
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2026 Polarsharp Aligarh. All rights reserved. Built with professionalism for Uttar Pradesh.
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Property Database for Aligarh
+        const properties = [
+            {
+                id: 1,
+                title: "Modern 3 BHK Independent House",
+                category: "house",
+                type: "rent",
+                location: "Civil Lines",
+                price: "?18,000 / mo",
+                priceRaw: 18000,
+                bedrooms: 3,
+                bathrooms: 2,
+                area: "1,600 sq.ft.",
+                image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+                description: "Spacious independent house located in upscale Civil Lines, Aligarh. Features modular kitchen, vitrified tiles, 24-hour water supply, and car parking space. Ideal for family living.",
+                ownerEmail: "polarsharp@gmail.com"
+            },
+            {
+                id: 2,
+                title: "Luxury 2 BHK Apartment",
+                category: "apartment",
+                type: "rent",
+                location: "Marris Road",
+                price: "?12,500 / mo",
+                priceRaw: 12500,
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "1,100 sq.ft.",
+                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+                description: "Well-ventilated 2 BHK apartment on Marris Road with lift facility, security guard, and power backup. Close to top schools and shopping centers.",
+                ownerEmail: "polarsharp@gmail.com"
+            },
+            {
+                id: 3,
+                title: "Prime Commercial / Residential Plot",
+                category: "villa",
+                type: "sale",
+                location: "Ramghat Road",
+                price: "?45 Lakhs",
+                priceRaw: 4500000,
+                bedrooms: 0,
+                bathrooms: 0,
+                area: "2,000 sq.ft.",
+                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
+                description: "Registry-ready freehold plot on Ramghat Road. Excellent frontage, ideal for building a duplex villa or commercial showroom in Aligarh.",
+                ownerEmail: "polarsharp@gmail.com"
+            },
+            {
+                id: 4,
+                title: "Furnished 1 BHK Student Studio",
+                category: "apartment",
+                type: "rent",
+                location: "Medical Road",
+                price: "?7,500 / mo",
+                priceRaw: 7500,
+                bedrooms: 1,
+                bathrooms: 1,
+                area: "650 sq.ft.",
+                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+                description: "Conveniently located near AMU / Medical Road. Fully furnished with bed, study table, AC wiring, and high-speed Wi-Fi readiness. Perfect for working professionals or scholars.",
+                ownerEmail: "polarsharp@gmail.com"
+            },
+            {
+                id: 5,
+                title: "Spacious 4 BHK Duplex Bungalow",
+                category: "house",
+                type: "sale",
+                location: "Civil Lines",
+                price: "?1.25 Crore",
+                priceRaw: 12500000,
+                bedrooms: 4,
+                bathrooms: 4,
+                area: "3,200 sq.ft.",
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
+                description: "Magnificent luxury bungalow in Civil Lines with lush green lawn, premium marble flooring, servant quarter, and 2-car covered garage.",
+                ownerEmail: "polarsharp@gmail.com"
+            },
+            {
+                id: 6,
+                title: "Cozy 2 BHK Builder Floor",
+                category: "apartment",
+                type: "rent",
+                location: "Qila",
+                price: "?9,000 / mo",
+                priceRaw: 9000,
+                bedrooms: 2,
+                bathrooms: 1,
+                area: "950 sq.ft.",
+                image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
+                description: "Affordable independent builder floor in Qila area. Peaceful neighborhood, close to local markets, water borewell fitted.",
+                ownerEmail: "polarsharp@gmail.com"
+            }
+        ];
+
+        // Render Property Grid
+        function renderProperties(data) {
+            const grid = document.getElementById('property-grid');
+            const noResults = document.getElementById('no-results');
+            grid.innerHTML = '';
+
+            if (data.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            data.forEach(prop => {
+                const isRent = prop.type === 'rent';
+                const badgeColor = isRent ? 'bg-amber-500' : 'bg-polar-600';
+                const badgeText = isRent ? 'For Rent' : 'For Sale';
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group';
+                card.innerHTML = `
+                    <div class="relative overflow-hidden h-56 bg-slate-100">
+                        <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/e2e8f0/475569?text=Polarsharp+Property'">
+                        <div class="absolute top-4 left-4 ${badgeColor} text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-md uppercase tracking-wider">
+                            ${badgeText}
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-slate-900/80 backdrop-blur-md text-white text-sm font-bold px-3 py-1 rounded-lg">
+                            ${prop.price}
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-xs font-semibold text-polar-600 mb-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>${prop.location}, Aligarh</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 group-hover:text-polar-600 transition-colors">${prop.title}</h3>
+                            <p class="text-xs text-slate-500 mt-2 line-clamp-2 font-light">${prop.description}</p>
+                        </div>
+
+                        ${prop.bedrooms > 0 ? `
+                        <div class="grid grid-cols-3 gap-2 py-3 border-y border-slate-100 text-xs text-slate-600 font-medium">
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-bed text-polar-600"></i> ${prop.bedrooms} Beds</div>
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-bath text-polar-600"></i> ${prop.bathrooms} Baths</div>
+                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-ruler-combined text-polar-600"></i> ${prop.area}</div>
+                        </div>
+                        ` : `
+                        <div class="py-3 border-y border-slate-100 text-xs text-slate-600 font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-ruler-combined text-polar-600"></i> Plot Area: ${prop.area}
+                        </div>
+                        `}
+
+                        <div class="flex items-center gap-3 pt-2">
+                            <button onclick="openModal(${prop.id})" class="flex-1 py-2.5 rounded-xl border border-slate-200 text-slate-700 font-semibold text-xs hover:bg-slate-50 transition-colors">
+                                View Details
+                            </button>
+                            <a href="mailto:polarsharp@gmail.com?subject=Inquiry%20regarding%20${encodeURIComponent(prop.title)}%20(${prop.location})" class="flex-1 py-2.5 rounded-xl bg-polar-600 hover:bg-polar-700 text-white font-semibold text-xs text-center transition-all shadow-sm flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>Email Inquiry</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter properties function
+        function filterProperties() {
+            const loc = document.getElementById('filter-location').value;
+            const type = document.getElementById('filter-type').value;
+            const cat = document.getElementById('filter-category').value;
+
+            let filtered = properties.filter(p => {
+                const matchLoc = (loc === 'all' || p.location.toLowerCase() === loc.toLowerCase());
+                const matchType = (type === 'all' || p.type === type);
+                const matchCat = (cat === 'all' || p.category === cat);
+                return matchLoc && matchType && matchCat;
+            });
+
+            renderProperties(filtered);
+        }
+
+        // Quick footer locality filter helper
+        function filterByLocality(locName) {
+            document.getElementById('filter-location').value = locName;
+            filterProperties();
+        }
+
+        // Modal Handling
+        function openModal(id) {
+            const prop = properties.find(p => p.id === id);
+            if (!prop) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="relative h-72 sm:h-80 bg-slate-100">
+                    <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x500/e2e8f0/475569?text=Polarsharp+Property'">
+                    <div class="absolute top-4 left-4 ${prop.type === 'rent' ? 'bg-amber-500' : 'bg-polar-600'} text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow uppercase">
+                        For ${prop.type === 'rent' ? 'Rent' : 'Sale'}
+                    </div>
+                </div>
+                <div class="p-6 sm:p-8 space-y-6">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold text-polar-600 uppercase tracking-wider">${prop.location}, Aligarh</span>
+                            <span class="text-xl font-extrabold text-slate-900">${prop.price}</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900 mt-1">${prop.title}</h2>
+                    </div>
+
+                    ${prop.bedrooms > 0 ? `
+                    <div class="grid grid-cols-3 gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center text-sm">
+                        <div>
+                            <span class="block text-xs text-slate-400 uppercase font-semibold">Bedrooms</span>
+                            <strong class="text-slate-800">${prop.bedrooms}</strong>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400 uppercase font-semibold">Bathrooms</span>
+                            <strong class="text-slate-800">${prop.bathrooms}</strong>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400 uppercase font-semibold">Area</span>
+                            <strong class="text-slate-800">${prop.area}</strong>
+                        </div>
+                    </div>
+                    ` : `
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-sm">
+                        <span class="block text-xs text-slate-400 uppercase font-semibold">Plot Area</span>
+                        <strong class="text-slate-800">${prop.area}</strong>
+                    </div>
+                    `}
+
+                    <div class="space-y-2">
+                        <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Property Overview</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed font-light">${prop.description}</p>
+                    </div>
+
+                    <div class="bg-polar-50 p-4 rounded-2xl border border-polar-100 text-xs text-polar-900 flex items-center justify-between">
+                        <div>
+                            <span class="font-bold block">Email Booking & Verification</span>
+                            <span>Direct coordination with Aligarh owners via polarsharp@gmail.com</span>
+                        </div>
+                        <i class="fa-solid fa-shield-halved text-2xl text-polar-600"></i>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-2">
+                        <a href="mailto:polarsharp@gmail.com?subject=Booking%20Inquiry%20for%20${encodeURIComponent(prop.title)}" class="w-full py-3.5 rounded-xl bg-polar-600 hover:bg-polar-700 text-white font-bold text-sm text-center transition-all shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Send Email Inquiry Now</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('property-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('property-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // Close modal on background click
+        document.getElementById('property-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'property-modal') closeModal();
+        });
+
+        // Owner Email Generator Function
+        function sendOwnerEmail() {
+            const name = document.getElementById('owner-name').value.trim();
+            const address = document.getElementById('owner-address').value.trim();
+            const intent = document.getElementById('owner-intent').value;
+            const price = document.getElementById('owner-price').value.trim();
+
+            if (!name || !address || !price) {
+                alert('Please fill in your name, address, and expected price before sending.');
+                return;
+            }
+
+            const subject = encodeURIComponent(`New Property Listing Submission (${intent}) - Aligarh`);
+            const body = encodeURIComponent(
+                `Hello Polarsharp Team,\n\nI would like to list my property in Aligarh for ${intent}.\n\nOwner Name & Phone: ${name}\nProperty Address: ${address}\nExpected Rent/Price: ${price}\n\nPlease contact me back to discuss photos and commission details.\n\nThank you.`
+            );
+
+            window.location.href = `mailto:polarsharp@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        // Initial render on load
+        window.onload = function() {
+            renderProperties(properties);
+        };
+    </script>
+</body>
+</html>
